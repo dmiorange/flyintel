@@ -79,13 +79,13 @@ main .banner .announcement {
 main .banner .description {
   font-size: 18px;
   color: #6b7280;
-  margin-bottom: 24px;
+  margin-bottom: 44px;
 }
 
 main h2 {
   font-size: 44px;
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 26px;
 }
 
 main h2 span {
@@ -94,16 +94,10 @@ main h2 span {
 
 .app-preview {
   font-size: 80px;
-  font-weight: 800;
+  font-weight: 900;
   color: #3b82f6;
-  margin-top: 40px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  margin-top: 30px;
   cursor: pointer;
-}
-
-.app-preview:hover {
-  color: #1e40af;
-  transform: scale(1.1);
 }
 
 .button-container {
@@ -122,14 +116,14 @@ button {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 button:hover {
   background-color: #1e40af;
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-2px) scale(1.0);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -154,4 +148,67 @@ footer nav a {
 
 footer nav a:hover {
   color: #3b82f6;
+}
+
+/* Forum styles */
+.forum-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 40px auto;
+  width: 80%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.forum-post {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.forum-post:hover {
+  transform: scale(1.02);
+}
+
+.forum-post h3 {
+  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.forum-post p {
+  color: #4b5563;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.post-form input, .post-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  width: 100%;
+}
+
+.post-form button {
+  align-self: flex-start;
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.post-form button:hover {
+  background-color: #1e40af;
 }
