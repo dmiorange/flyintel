@@ -32,7 +32,7 @@ function loadHomePage() {
     <div class="banner">
       <p class="announcement">We're currently in Development! Join our Discord to stay updated.</p>
       <h2>Track Flights like <span>never before</span>.</h2>
-      <p class="description">The future of flight simulation tracking. Offered completely for free! Currently supporting all major simulators!</p>
+      <p class="description">FlyIntel is redefining the future of flight simulation tracking completely free for all users! Currently supporting all major simulators!</p>
       <div class="button-container">
         <button onclick="window.open('https://discord.gg/GuJzmG2VBv', '_blank')">Join Discord</button>
       </div>
