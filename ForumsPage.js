@@ -1,3 +1,5 @@
+// forums.js with enhanced authentication (email, username, password), login/register tab, and logout functionality
+
 class Forum {
   constructor() {
     this.users = JSON.parse(localStorage.getItem("forumUsers")) || [];
@@ -6,6 +8,11 @@ class Forum {
       {
         title: "Recent Announcements",
         content: "Dev Update 2/21/2025: Started to Build the App",
+        comments: [],
+      },
+      {
+        title: "Recent Announcements",
+        content: "Dev Update 2/26/2025: We created the frontend of the app",
         comments: [],
       },
     ];
@@ -20,11 +27,11 @@ class Forum {
     localStorage.setItem("forumPosts", JSON.stringify(this.posts));
   }
 
-  registerUser(username, password) {
+  registerUser(email, username, password) {
     if (this.users.find((user) => user.username === username)) {
       alert("Username already exists.");
     } else {
-      this.users.push({ username, password });
+      this.users.push({ email, username, password });
       this.saveUsers();
       alert("Registration successful! Please log in.");
       this.showLoginForm();
@@ -122,7 +129,7 @@ class Forum {
   }
 
   showLoginForm() {
-    document.getElementById("main").innerHTML = `
+    document.getElementById("login-register-tab").innerHTML = `
       <div class="auth-form">
         <h2>Login</h2>
         <form onsubmit="handleLogin(event)">
@@ -136,10 +143,11 @@ class Forum {
   }
 
   showRegisterForm() {
-    document.getElementById("main").innerHTML = `
+    document.getElementById("login-register-tab").innerHTML = `
       <div class="auth-form">
         <h2>Register</h2>
         <form onsubmit="handleRegister(event)">
+          <input type="email" id="register-email" placeholder="Email" required />
           <input type="text" id="register-username" placeholder="Username" required />
           <input type="password" id="register-password" placeholder="Password" required />
           <button type="submit">Register</button>
@@ -152,6 +160,7 @@ class Forum {
   loadForumsPage() {
     document.getElementById("main").innerHTML = `
       <div class="forum-container">
+        <div id="login-register-tab"></div>
         <h2>Community Forums</h2>
         ${
           this.currentUser
@@ -161,6 +170,7 @@ class Forum {
         <div class="forum-announcements">
           <h3>Recent Announcements</h3>
           <p>Dev Update 2/21/2025: Started to Build the App</p>
+          <p>Dev Update 2/26/2025: We created the frontend of the app</p>
         </div>
         ${
           this.currentUser
@@ -206,9 +216,10 @@ function handleLogin(event) {
 
 function handleRegister(event) {
   event.preventDefault();
+  const email = document.getElementById("register-email").value;
   const username = document.getElementById("register-username").value;
   const password = document.getElementById("register-password").value;
-  forum.registerUser(username, password);
+  forum.registerUser(email, username, password);
 }
 
 // Initialize forums page
